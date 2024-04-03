@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages {
+        stage("Clone") {
+            steps {
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/LokendraDevOps/intro-component-with-signup-form.git']])
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh "docker build -t lokendradevops/frontendapp ."
+                }
+            }
+        }
+        stage('Push to Docker Hub') {
+            steps{
+                script {
+                    def dockerHubRepo = "lokendradevops/jenkins"
+                                        sh "docker login -u lokendradevops -p Hello@123"
+                    sh "docker tag ${V-1} ${lokendradevops/jenkins}:${V-1}"
+                    sh "docker push ${lokendradevops/jenkins}:${V-1}"
+                }
+            }
+        }
+    }
+}
+

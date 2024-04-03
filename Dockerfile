@@ -5,7 +5,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 WORKDIR /usr/src/app
 COPY . .
-COPY ./path/to/your/app /var/www/html
+COPY . /var/www/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 

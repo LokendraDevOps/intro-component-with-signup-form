@@ -17,7 +17,7 @@ pipeline {
             steps{
                 script {
                     def dockerHubRepo = "lokendradevops/jenkins"
-                                        sh "docker login -u lokendradevops -p Hello@123"
+                    sh "docker login -u lokendradevops -p Hello@123"
                     sh "docker tag ${V-1} ${lokendradevops/jenkins}:${V-1}"
                     sh "docker push ${lokendradevops/jenkins}:${V-1}"
                 }

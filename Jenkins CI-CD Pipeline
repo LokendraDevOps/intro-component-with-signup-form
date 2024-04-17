@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     sh "docker build -t frontendapp ."
-                    sh "docker run -d -p 80:80 lokendradevops/frontendapp"
+                    sh "docker run -d -p 80:80 frontendapp"
                 }
             }
         }

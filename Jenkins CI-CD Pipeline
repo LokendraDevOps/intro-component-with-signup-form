@@ -24,7 +24,7 @@ pipeline {
 		}
 		stage('Push') {
 			steps {
-				sh 'docker push lokendradevops/frontendappt:latest'
+				sh 'docker push frontendappt:latest'
 			}
 		}
 	}
